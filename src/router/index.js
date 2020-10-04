@@ -11,14 +11,15 @@ const routes = [
     component: Home
   },
   {
-    path: '/sobremi',
-    name: 'Sobremi',
-    component: () => import('../views/Sobremi.vue')
+    path:'/sobremi',
+    name:'Sobremi',
+    component:()=> import(/*webpackChunkName:"sobremi"*/'../views/Sobremi.vue'),
+    alias:['/acerca']
   },
   {
     path: '/contacto',
-    name: 'Contacto',
-    component: () => import('../views/Contacto.vue')
+        alias:['/contactame'],
+        component:()=> import(/*webpackChunkName:"contacto"*/'../views/Contacto.vue')
   },
   {
     path: '*',
@@ -30,6 +31,16 @@ const routes = [
     name: 'Articulo',
     component: () => import('../views/Post.vue')
 },
+{
+  path:'/administrador/simple',
+  name: 'simple',
+  component: () => import('../views/Simple.vue')
+},
+{
+  path:'/administrador/avanzado',
+  name: 'avanzado',
+  component: () => import('../views/Avanzado.vue')
+}
 ]
 
 const router = new VueRouter({
